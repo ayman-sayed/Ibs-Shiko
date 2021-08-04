@@ -72,7 +72,7 @@
             </field>
         </record>
 
-        <menuitem id="add_packing_list_menu_menu_view" name="Picking List" parent="stock.menu_stock_inventory_control"
+        <menuitem id="add_packing_list_menu_menu_view" name="Packing List" parent="stock.menu_stock_inventory_control"
 
                   action="add_packing_list_menu_action_view"/>
     </data>
