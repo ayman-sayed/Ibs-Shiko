@@ -1,10 +1,24 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import UserError
+
+
+class ProductTemplate(models.Model):
+    _inherit = 'product.product'
+
+    @api.constrains('default_code')
+    def make_code_unique(self):
+        for rec in self:
+            product=self.env['product.product'].search([('default_code','=',self.default_code),('id','!=',self.id)],limit=1)
+            print('product',product)
+            print('fffffff',product.name)
+            print('ddddddddddddd',product.default_code)
+            if product :
+                raise UserError("This Product Code Exist Before")
 
 
 class SaleOrder(models.Model):
-    _name = 'sale.order'
     _inherit = 'sale.order'
 
     state = fields.Selection([
@@ -15,6 +29,8 @@ class SaleOrder(models.Model):
         ('validate', 'Validate'),
         ('cancel', 'Cancelled'),
     ], string='Status', readonly=True, copy=False, index=True, tracking=3, default='draft')
+
+    type = fields.Selection(string="Type", selection=[('online', 'Online'),('vip', 'VIP'),  ], required=False, )
 
     def button_method_validate(self):
         for rec in self:
