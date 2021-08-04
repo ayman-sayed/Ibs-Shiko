@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="add_packing_list_menu_form_view" model="ir.ui.view">
+            <field name="name">add_packing_list_menu_form_view</field>
+            <field name="model">add_packing_list_menu.add_packing_list_menu</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="git_confirm" string="Confirm" class="oe_highlight" type="object" states="draft"/>
+                        <button name="git_create_po" string="Create Po" class="oe_highlight"
+                                type="object" states="confirm"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="vendor_name"/>
+                                <field name="vendor_address"/>
+                                <field name="shipping_number"/>
+                                <field name="container_number"/>
+                            </group>
+                            <group>
+                                <field name="order_date"/>
+                                <field name="delivery_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Packing List">
+                                <field name="packing_list">
+                                    <tree editable="bottom">
+                                        <field name="product_id_id"/>
+                                        <field name="product_description"/>
+                                        <field name="quantity"/>
+                                    </tree>
+
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="add_packing_list_menu_tree_view" model="ir.ui.view">
+            <field name="name">add_packing_list_menu_tree_view</field>
+            <field name="model">add_packing_list_menu.add_packing_list_menu</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="vendor_name"/>
+                    <field name="vendor_address"/>
+                    <field name="shipping_number"/>
+                    <field name="container_number"/>
+                    <field name="order_date"/>
+                    <field name="delivery_date"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="add_packing_list_menu_action_view">
+            <field name="name">packing list</field>
+            <field name="res_model">add_packing_list_menu.add_packing_list_menu</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new accounting test
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="add_packing_list_menu_menu_view" name="Picking List" parent="stock.menu_stock_inventory_control"
+
+                  action="add_packing_list_menu_action_view"/>
+    </data>
+</odoo>
