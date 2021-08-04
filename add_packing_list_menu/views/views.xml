@@ -62,7 +62,7 @@
             </field>
         </record>
         <record model="ir.actions.act_window" id="add_packing_list_menu_action_view">
-            <field name="name">add packing list menu action view</field>
+            <field name="name">packing list</field>
             <field name="res_model">add_packing_list_menu.add_packing_list_menu</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">

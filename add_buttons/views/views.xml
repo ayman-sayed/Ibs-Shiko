@@ -7,7 +7,14 @@
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//button[@name='print_quotation']" position="after">
-                    <button name="validate_button" type="object" string="Validate"/>
+                    <button name="validate_button" type="object" string="Validate" states="draft,sent"/>
+                </xpath>
+                <xpath expr="//button[@id='draft_confirm']" position="replace">
+                    <!-- Add your fields or attributes here -->
+                    <button name="button_confirm" type="object" states="validate" string="Confirm Order" id="draft_confirm"/>
+                </xpath>
+                <xpath expr="///button[@id='bid_confirm']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
         </record>
@@ -18,10 +25,14 @@
             <field name="arch" type="xml">
                 <xpath expr="//button[@name='button_validate']" position="attributes">
                     <attribute name="string">Confirm</attribute>
-                    <attribute name="states">assigned</attribute>
+                    <attribute name="states">validate</attribute>
                 </xpath>
+                <xpath expr="//button[@name='button_validate'][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
                 <xpath expr="//button[@name='button_validate']" position="after">
-                    <button name="button_validate_name" type="object" string="Validate" states="done"/>
+                    <button name="button_validate_name" type="object" string="Validate" states="confirmed,assigned"/>
                 </xpath>
             </field>
         </record>
