@@ -29,6 +29,7 @@ class add_packing_list_menu(models.Model):
             print('rec.vendor_name.name', rec.vendor_name.name)
             po_create = self.env['purchase.order'].sudo().create({
                 'partner_id': rec.vendor_name.id,
+                'date_planned': rec.delivery_date,
             })
 
             for line in rec.packing_list:
