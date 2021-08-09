@@ -30,11 +30,23 @@ class SaleOrder(models.Model):
         ('cancel', 'Cancelled'),
     ], string='Status', readonly=True, copy=False, index=True, tracking=3, default='draft')
 
-    type = fields.Selection(string="Type", selection=[('online', 'Online'),('vip', 'VIP'),  ], required=False, )
+    type = fields.Selection(string="Type", selection=[('online', 'Online'), ('vip', 'VIP'), ], required=False,
+                            compute="vip_or_online")
 
     def button_method_validate(self):
         for rec in self:
             rec.state = "validate"
+
+    @api.depends('partner_id')
+    def vip_or_online(self):
+        for rec in self:
+            res_user = self.env['res.users'].search([('id', '=', rec._uid)])
+            if res_user.has_group('add_buttons_sale.id_group_vip'):
+                rec.type = 'vip'
+            elif res_user.has_group('add_buttons_sale.id_group_online'):
+                rec.type = 'online'
+            else:
+                rec.type = 'online'
 
 # class add_buttons_sale(models.Model):
 #     _name = 'add_buttons_sale.add_buttons_sale'
