@@ -11,9 +11,6 @@ class ProductTemplate(models.Model):
     def make_code_unique(self):
         for rec in self:
             product=self.env['product.product'].search([('default_code','=',self.default_code),('id','!=',self.id)],limit=1)
-            print('product',product)
-            print('fffffff',product.name)
-            print('ddddddddddddd',product.default_code)
             if product :
                 raise UserError("This Product Code Exist Before")
 

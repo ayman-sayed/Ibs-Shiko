@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="id_pos_order_form_exchange_inherit2" model="ir.ui.view">
+            <field name="name">pos.order.form.exchange.inherit2</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="pos_config_id" attrs="{'invisible': [('pos_config_id', '=', False)]}" readonly="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='pos_config_id']" position="after">
+                    <field name="invoice_group" readonly="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_group']" position='attributes'>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='fiscal_position_id']" position='attributes'>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+
+        <record id="pos_order_tree_exchange_inherit2" model="ir.ui.view">
+        <field name="name">pos.order.tree.exchange.inherit2</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='session_id']" position='after'>
+                <field name="pos_config_id"/>
+            </xpath>
+
+
+        </field>
+    </record>
+
+    </data>
+</odoo>
