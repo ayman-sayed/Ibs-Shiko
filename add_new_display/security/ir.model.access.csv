@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sub_transfer_display,sub_transfer_group,add_new_display.model_add_new_display,add_new_display.id_sub_transfer_group,1,1,1,1
+access_inventory_line,access_inventory_line,model_inventory_line,base.group_user,1,1,1,1
+
