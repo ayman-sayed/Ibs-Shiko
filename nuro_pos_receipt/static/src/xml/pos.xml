@@ -49,16 +49,20 @@
         <div class="oe_status js_synch">
             <span class='js_msg oe_hidden'>0</span>
             <div class="js_connected oe_icon oe_green">
-                <i class='fa fa-fw fa-wifi' role="img" aria-label="Synchronisation Connected" title="Synchronisation Connected"></i>
+                <i class='fa fa-fw fa-wifi' role="img" aria-label="Synchronisation Connected"
+                   title="Synchronisation Connected"></i>
             </div>
             <div class="js_connecting oe_icon oe_hidden">
-                <i class='fa fa-fw fa-spin fa-spinner' role="img" aria-label="Synchronisation Connecting" title="Synchronisation Connecting"></i>
+                <i class='fa fa-fw fa-spin fa-spinner' role="img" aria-label="Synchronisation Connecting"
+                   title="Synchronisation Connecting"></i>
             </div>
             <div class="js_disconnected oe_icon oe_red oe_hidden">
-                <i class='fa fa-fw fa-wifi' role="img" aria-label="Synchronisation Disconnected" title="Synchronisation Disconnected"></i>
+                <i class='fa fa-fw fa-wifi' role="img" aria-label="Synchronisation Disconnected"
+                   title="Synchronisation Disconnected"></i>
             </div>
             <div class="js_error oe_icon oe_red oe_hidden">
-                <i class='fa fa-fw fa-warning' role="img" aria-label="Synchronisation Error" title="Synchronisation Error"></i>
+                <i class='fa fa-fw fa-warning' role="img" aria-label="Synchronisation Error"
+                   title="Synchronisation Error"></i>
             </div>
         </div>
     </t>
@@ -70,7 +74,8 @@
             </div>
             <div class="js_connecting oe_hidden">
                 <span class="js_msg oe_hidden"></span>
-                <i class='fa fa-fw fa-spin fa-spinner' role="img" aria-label="Connecting to Proxy" title="Connecting to Proxy"></i>
+                <i class='fa fa-fw fa-spin fa-spinner' role="img" aria-label="Connecting to Proxy"
+                   title="Connecting to Proxy"></i>
             </div>
             <div class="js_warning oe_orange oe_hidden">
                 <span class="js_msg oe_hidden"></span>
@@ -78,14 +83,16 @@
             </div>
             <div class="js_disconnected oe_red oe_hidden">
                 <span class="js_msg oe_hidden"></span>
-                <i class='fa fa-fw fa-sitemap' role="img" aria-label="Proxy Disconnected" title="Proxy Disconnected"></i>
+                <i class='fa fa-fw fa-sitemap' role="img" aria-label="Proxy Disconnected"
+                   title="Proxy Disconnected"></i>
             </div>
         </div>
     </t>
     <t t-name="SaleDetailsButton">
         <div class="oe_status">
             <div class="js_connected oe_icon">
-                <i class='fa fa-fw fa-print' role="img" aria-label="Print" title="Print a report with all the sales of the current PoS Session"></i>
+                <i class='fa fa-fw fa-print' role="img" aria-label="Print"
+                   title="Print a report with all the sales of the current PoS Session"></i>
             </div>
         </div>
     </t>
@@ -93,20 +100,23 @@
         <div class="oe_status">
             <span class="oe_customer_display_text"></span>
             <div class="js_warning oe_icon oe_orange oe_hidden">
-                <i class='fa fa-fw fa-desktop' role="img" aria-label="Client Screen Warning" title="Client Screen Warning"></i>
+                <i class='fa fa-fw fa-desktop' role="img" aria-label="Client Screen Warning"
+                   title="Client Screen Warning"></i>
             </div>
             <div class="js_disconnected oe_icon oe_red">
-                <i class='fa fa-fw fa-desktop' role="img" aria-label="Client Screen Disconnected" title="Client Screen Disconnected"></i>
+                <i class='fa fa-fw fa-desktop' role="img" aria-label="Client Screen Disconnected"
+                   title="Client Screen Disconnected"></i>
             </div>
             <div class="js_connected oe_icon oe_green oe_hidden">
-                <i class='fa fa-fw fa-desktop' role="img" aria-label="Client Screen Connected" title="Client Screen Connected"></i>
+                <i class='fa fa-fw fa-desktop' role="img" aria-label="Client Screen Connected"
+                   title="Client Screen Connected"></i>
             </div>
         </div>
     </t>
     <t t-name="HeaderButtonWidget">
         <div class="header-button">
             <t t-if="!widget.icon">
-                <t t-esc="widget.label" />
+                <t t-esc="widget.label"/>
             </t>
             <t t-else="">
                 <i class='fa fa-fw' role="img"/>
@@ -118,25 +128,27 @@
     </t>
     <t t-name="ActionButtonWidget">
         <div class='control-button'>
-            <t t-esc='widget.label' />
+            <t t-esc='widget.label'/>
         </div>
     </t>
     <t t-name="SetFiscalPositionButton">
         <div class='control-button o_fiscal_position_button'>
-            <i class='fa fa-book' role="img" aria-label="Set fiscal position" title="Set fiscal position"/> <t t-esc='widget.get_current_fiscal_position_name()'/>
+            <i class='fa fa-book' role="img" aria-label="Set fiscal position" title="Set fiscal position"/>
+            <t t-esc='widget.get_current_fiscal_position_name()'/>
         </div>
     </t>
     <t t-name="SetPricelistButton">
         <div class='control-button o_pricelist_button'>
-            <i class='fa fa-th-list' role="img" aria-label="Price list" title="Price list"/> <t t-esc='widget.get_current_pricelist_name()'/>
+            <i class='fa fa-th-list' role="img" aria-label="Price list" title="Price list"/>
+            <t t-esc='widget.get_current_pricelist_name()'/>
         </div>
     </t>
     <t t-name="ActionpadWidget">
         <div class="actionpad">
-            <button t-attf-class='button set-customer #{ ( widget.pos.get_client() and widget.pos.get_client().name.length > 10) ? "decentered" : "" }' >
+            <button t-attf-class='button set-customer #{ ( widget.pos.get_client() and widget.pos.get_client().name.length > 10) ? "decentered" : "" }'>
                 <i class='fa fa-user' role="img" aria-label="Customer" title="Customer"/>
                 <t t-if="widget.pos.get_client()">
-                    <t t-esc="widget.pos.get_client().name" />
+                    <t t-esc="widget.pos.get_client().name"/>
                 </t>
                 <t t-if="!widget.pos.get_client()">
                     Customer
@@ -156,27 +168,28 @@
             <button class="input-button number-char">2</button>
             <button class="input-button number-char">3</button>
             <button class="mode-button" data-mode='quantity'>Qty</button>
-            <br />
+            <br/>
             <button class="input-button number-char">4</button>
             <button class="input-button number-char">5</button>
             <button class="input-button number-char">6</button>
             <button class="mode-button" data-mode='discount'>Disc</button>
-            <br />
+            <br/>
             <button class="input-button number-char">7</button>
             <button class="input-button number-char">8</button>
             <button class="input-button number-char">9</button>
             <button class="mode-button" data-mode='price'>Price</button>
-            <br />
-            <button class="input-button numpad-minus" >+/-</button>
+            <br/>
+            <button class="input-button numpad-minus">+/-</button>
             <button class="input-button number-char">0</button>
             <button class="input-button number-char">.</button>
             <button class="input-button numpad-backspace">
-                <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24" height="21" alt="Backspace"/>
+                <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24"
+                     height="21" alt="Backspace"/>
             </button>
         </div>
     </t>
     <t t-name="CategoryButton">
-        <span class='category-button js-category-switch' t-att-data-category-id="category.id" >
+        <span class='category-button js-category-switch' t-att-data-category-id="category.id">
             <div class="category-img">
                 <img t-att-src="image_url" alt="Category"/>
             </div>
@@ -186,7 +199,7 @@
         </span>
     </t>
     <t t-name="CategorySimpleButton">
-        <span class='category-simple-button js-category-switch' t-att-data-category-id="category.id" >
+        <span class='category-simple-button js-category-switch' t-att-data-category-id="category.id">
             <t t-esc="category.name"/>
         </span>
     </t>
@@ -209,12 +222,12 @@
                 </t>
             </div>
             <div class="searchbox">
-                <input placeholder="Search Products" />
+                <input placeholder="Search Products"/>
                 <span class="search-clear left">
-                    <i class="fa fa-search" />
+                    <i class="fa fa-search"/>
                 </span>
                 <span class="search-clear right">
-                    <i class="fa fa-remove" />
+                    <i class="fa fa-remove"/>
                 </span>
             </div>
         </header>
@@ -246,7 +259,7 @@
                     </div>
                 </t>
             </div>
-            <span class="placeholder-ScrollbarWidget" />
+            <span class="placeholder-ScrollbarWidget"/>
         </div>
     </t>
     <t t-name="ProductScreenWidget">
@@ -276,13 +289,13 @@
                 <table class="layout-table">
                     <tr class="header-row">
                         <td class="header-cell">
-                            <span class="placeholder-ProductCategoriesWidget" />
+                            <span class="placeholder-ProductCategoriesWidget"/>
                         </td>
                     </tr>
                     <tr class="content-row">
                         <td class="content-cell">
                             <div class="content-container">
-                                <span class="placeholder-ProductListWidget" />
+                                <span class="placeholder-ProductListWidget"/>
                             </div>
                         </td>
                     </tr>
@@ -302,10 +315,10 @@
                 </div>
                 <div class="centered-content">
                     <div class='weight js-weight'>
-                        <t t-esc="widget.get_product_weight_string()" />
+                        <t t-esc="widget.get_product_weight_string()"/>
                     </div>
                     <div class='product-price'>
-                        <t t-esc="widget.format_currency(widget.get_product_price()) + '/' + widget.get_product_uom()" />
+                        <t t-esc="widget.format_currency(widget.get_product_price()) + '/' + widget.get_product_uom()"/>
                     </div>
                     <div class='computed-price'>
                         123.14 €
@@ -332,7 +345,8 @@
                     <i class='fa fa-camera' role="img" aria-label="Picture" title="Picture"></i>
                 </t>
                 <t t-if='partner.id'>
-                    <img t-att-src='widget.partner_icon_url(partner.id)' alt="Partner" style="width: 64px; height: 64px; object-fit: cover;"/>
+                    <img t-att-src='widget.partner_icon_url(partner.id)' alt="Partner"
+                         style="width: 64px; height: 64px; object-fit: cover;"/>
                 </t>
                 <input type='file' class='image-uploader'></input>
             </div>
@@ -345,15 +359,18 @@
                 <div class='client-details-left'>
                     <div class='client-detail'>
                         <span class='label'>Street</span>
-                        <input class='detail client-address-street' name='street'       t-att-value='partner.street || ""' placeholder='Street'></input>
+                        <input class='detail client-address-street' name='street' t-att-value='partner.street || ""'
+                               placeholder='Street'></input>
                     </div>
                     <div class='client-detail'>
                         <span class='label'>City</span>
-                        <input class='detail client-address-city'   name='city'         t-att-value='partner.city || ""' placeholder='City'></input>
+                        <input class='detail client-address-city' name='city' t-att-value='partner.city || ""'
+                               placeholder='City'></input>
                     </div>
                     <div class='client-detail'>
                         <span class='label'>Postcode</span>
-                        <input class='detail client-address-zip'    name='zip'          t-att-value='partner.zip || ""' placeholder='ZIP'></input>
+                        <input class='detail client-address-zip' name='zip' t-att-value='partner.zip || ""'
+                               placeholder='ZIP'></input>
                     </div>
                     <div class='client-detail'>
                         <span class='label'>State</span>
@@ -372,7 +389,8 @@
                         <select class='detail client-address-country needsclick' name='country_id'>
                             <option value=''>None</option>
                             <t t-foreach='widget.pos.countries' t-as='country'>
-                                <option t-att-value='country.id' t-att-selected="partner.country_id ? ((country.id === partner.country_id[0]) ? true : undefined) : undefined">
+                                <option t-att-value='country.id'
+                                        t-att-selected="partner.country_id ? ((country.id === partner.country_id[0]) ? true : undefined) : undefined">
                                     <t t-esc='country.name'/>
                                 </option>
                             </t>
@@ -382,19 +400,21 @@
                 <div class='client-details-right'>
                     <div class='client-detail'>
                         <span class='label'>Email</span>
-                        <input class='detail client-email'  name='email'    type='email'    t-att-value='partner.email || ""'></input>
+                        <input class='detail client-email' name='email' type='email'
+                               t-att-value='partner.email || ""'></input>
                     </div>
                     <div class='client-detail'>
                         <span class='label'>Phone</span>
-                        <input class='detail client-phone'  name='phone'    type='tel'      t-att-value='partner.phone || ""'></input>
+                        <input class='detail client-phone' name='phone' type='tel'
+                               t-att-value='partner.phone || ""'></input>
                     </div>
                     <div class='client-detail'>
                         <span class='label'>Barcode</span>
-                        <input class='detail barcode'       name='barcode'    t-att-value='partner.barcode || ""'></input>
+                        <input class='detail barcode' name='barcode' t-att-value='partner.barcode || ""'></input>
                     </div>
                     <div class='client-detail'>
                         <span class='label'>Tax ID</span>
-                        <input class='detail vat'           name='vat'     t-att-value='partner.vat || ""'></input>
+                        <input class='detail vat' name='vat' t-att-value='partner.vat || ""'></input>
                     </div>
                     <div t-attf-class='client-detail #{widget.pos.pricelists.length &lt;= 1 ? "oe_hidden" : ""}'>
                         <span class='label'>Pricelist</span>
@@ -414,7 +434,8 @@
     <t t-name="ClientDetails">
         <section class='client-details'>
             <div class='client-picture'>
-                <img t-att-src='widget.partner_icon_url(partner.id)' alt="Partner logo" style="width: 64px; height: 64px; object-fit: cover;"/>
+                <img t-att-src='widget.partner_icon_url(partner.id)' alt="Partner logo"
+                     style="width: 64px; height: 64px; object-fit: cover;"/>
             </div>
             <div class='client-name'><t t-esc='partner.name' /></div>
             <div class='edit-buttons'>
@@ -491,7 +512,7 @@
                         Cancel
                     </span>
                     <span class='searchbox'>
-                        <input placeholder='Search Customers' />
+                        <input placeholder='Search Customers'/>
                         <span class='search-clear'></span>
                     </span>
                     <span class='searchbox'></span>
@@ -541,7 +562,8 @@
                 <td colspan="3">
                     Payment request pending
                 </td>
-                <td colspan="2" class='button send_payment_request highlight' title="Send Payment Request" t-att-data-cid='line.cid'>
+                <td colspan="2" class='button send_payment_request highlight' title="Send Payment Request"
+                    t-att-data-cid='line.cid'>
                     Send
                 </td>
             </t>
@@ -549,7 +571,8 @@
                 <td colspan="3">
                     Transaction cancelled
                 </td>
-                <td colspan="2" class='button send_payment_request highlight' title="Send Payment Request" t-att-data-cid='line.cid'>
+                <td colspan="2" class='button send_payment_request highlight' title="Send Payment Request"
+                    t-att-data-cid='line.cid'>
                     Retry
                 </td>
             </t>
@@ -565,7 +588,8 @@
                 <td colspan="3">
                     Waiting for card
                 </td>
-                <td colspan="2" class='button send_payment_cancel' title="Cancel Payment Request" t-att-data-cid='line.cid'>
+                <td colspan="2" class='button send_payment_cancel' title="Cancel Payment Request"
+                    t-att-data-cid='line.cid'>
                     Cancel
                 </td>
             </t>
@@ -590,7 +614,8 @@
                     <td colspan="3">
                         Payment Successful
                     </td>
-                    <td colspan="2" class='button send_payment_reversal' title="Reverse Payment" t-att-data-cid='line.cid'>
+                    <td colspan="2" class='button send_payment_reversal' title="Reverse Payment"
+                        t-att-data-cid='line.cid'>
                         Reverse
                     </td>
                 </t>
@@ -623,11 +648,11 @@
         <t t-if="paymentlines.length">
             <table class='paymentlines'>
                 <colgroup>
-                    <col class='due' />
-                    <col class='tendered' />
-                    <col class='change' />
-                    <col class='method' />
-                    <col class='controls' />
+                    <col class='due'/>
+                    <col class='tendered'/>
+                    <col class='change'/>
+                    <col class='method'/>
+                    <col class='controls'/>
                 </colgroup>
                 <thead>
                     <tr class='label'>
@@ -642,31 +667,32 @@
                     <t t-foreach='paymentlines' t-as='line'>
                         <t t-if='line.selected'>
                             <tr class='paymentline selected'>
-                                <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))' /> </td>
+                                <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))'/> </td>
                                 <t t-if="line &amp;&amp; line.payment_status &amp;&amp; ['done', 'waitingCard', 'waiting', 'reversing', 'reversed'].includes(line.payment_status)">
                                     <td class='col-tendered'>
-                                        <t t-esc='widget.format_currency_no_symbol(line.get_amount())' />
+                                        <t t-esc='widget.format_currency_no_symbol(line.get_amount())'/>
                                     </td>
                                 </t>
                                 <t t-else="">
                                     <td class='col-tendered edit'>
-                                        <t t-esc='widget.inputbuffer' />
+                                        <t t-esc='widget.inputbuffer'/>
                                     </td>
                                 </t>
                                 <t t-if='order.get_change(line)'>
-                                    <td class='col-change highlight' >
-                                        <t t-esc='widget.format_currency_no_symbol(order.get_change(line))' />
+                                    <td class='col-change highlight'>
+                                        <t t-esc='widget.format_currency_no_symbol(order.get_change(line))'/>
                                     </td>
                                 </t>
                                 <t t-if='!order.get_change(line)'>
-                                    <td class='col-change' ></td>
+                                    <td class='col-change'></td>
                                 </t>
-                                <td class='col-name' > <t t-esc='line.payment_method.name' /> </td>
+                                <td class='col-name'> <t t-esc='line.payment_method.name'/> </td>
                                 <t t-if="line &amp;&amp; line.payment_status &amp;&amp; ['done', 'reversed', 'reversing'].includes(line.payment_status)">
                                     <td/>
                                 </t>
                                 <t t-else=''>
-                                    <td class='delete-button' t-att-data-cid='line.cid' aria-label="Delete" title="Delete">
+                                    <td class='delete-button' t-att-data-cid='line.cid' aria-label="Delete"
+                                        title="Delete">
                                         <i class='fa fa-times-circle'/>
                                     </td>
                                 </t>
@@ -677,19 +703,21 @@
                         </t>
                         <t t-if='!line.selected'>
                             <tr class='paymentline' t-att-data-cid='line.cid'>
-                                <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))' /> </td>
-                                <td class='col-tendered'> <t t-esc='widget.format_currency_no_symbol(line.get_amount())' /> </td>
+                                <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))'/> </td>
+                                <td class='col-tendered'> <t
+                                        t-esc='widget.format_currency_no_symbol(line.get_amount())'/> </td>
                                 <td class='col-change'>
                                     <t t-if='order.get_change(line)'>
-                                        <t t-esc='widget.format_currency_no_symbol(order.get_change(line))' />
+                                        <t t-esc='widget.format_currency_no_symbol(order.get_change(line))'/>
                                      </t>
                                 </td>
-                                <td class='col-name'> <t t-esc='line.name' /> </td>
+                                <td class='col-name'> <t t-esc='line.name'/> </td>
                                 <t t-if="line &amp;&amp; line.payment_status &amp;&amp; ['done', 'reversed', 'reversing'].includes(line.payment_status)">
                                     <td/>
                                 </t>
                                 <t t-else=''>
-                                    <td class='delete-button' t-att-data-cid='line.cid' aria-label="Delete" title="Delete">
+                                    <td class='delete-button' t-att-data-cid='line.cid' aria-label="Delete"
+                                        title="Delete">
                                         <i class='fa fa-times-circle'/>
                                     </td>
                                 </t>
@@ -698,7 +726,7 @@
                     </t>
                     <t t-if='extradue'>
                         <tr class='paymentline extra' t-att-data-cid='0'>
-                            <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(extradue)' /> </td>
+                            <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(extradue)'/> </td>
                         </tr>
                     </t>
                 </tbody>
@@ -711,21 +739,21 @@
             <button class="input-button number-char" data-action='2'>2</button>
             <button class="input-button number-char" data-action='3'>3</button>
             <button class="mode-button" data-action='+10'>+10</button>
-            <br />
+            <br/>
             <button class="input-button number-char" data-action='4'>4</button>
             <button class="input-button number-char" data-action='5'>5</button>
             <button class="input-button number-char" data-action='6'>6</button>
             <button class="mode-button" data-action='+20'>+20</button>
-            <br />
+            <br/>
             <button class="input-button number-char" data-action='7'>7</button>
             <button class="input-button number-char" data-action='8'>8</button>
             <button class="input-button number-char" data-action='9'>9</button>
             <button class="mode-button" data-action='+50'>+50</button>
-            <br />
-            <button class="input-button numpad-char" data-action='-' >+/-</button>
+            <br/>
+            <button class="input-button numpad-char" data-action='-'>+/-</button>
             <button class="input-button number-char" data-action='0'>0</button>
             <button class="input-button number-char" t-att-data-action='widget.decimal_point'><t t-esc='widget.decimal_point'/></button>
-            <button class="input-button numpad-backspace" data-action='BACKSPACE' >
+            <button class="input-button numpad-backspace" data-action='BACKSPACE'>
                 <img src="/point_of_sale/static/src/img/backspace.png" width="24" height="21" alt="Backspace"/>
             </button>
         </div>
@@ -734,7 +762,7 @@
         <div class='paymentmethods'>
             <t t-foreach="widget.pos.payment_methods" t-as="payment_method">
                 <div class="button paymentmethod" t-att-data-id="payment_method.id">
-                    <t t-esc="payment_method.name" />
+                    <t t-esc="payment_method.name"/>
                 </div>
             </t>
         </div>
@@ -767,7 +795,7 @@
                             <i class='fa fa-user' role="img" aria-label="Customer" title="Customer"/>
                             <span class='js_customer_name'>
                                 <t t-if="widget.pos.get_client()">
-                                    <t t-esc="widget.pos.get_client().name" />
+                                    <t t-esc="widget.pos.get_client().name"/>
                                 </t>
                                 <t t-if="!widget.pos.get_client()">
                                     Customer
@@ -777,21 +805,25 @@
                         <t t-if='widget.pos.config.module_account'>
                             <t t-if='widget.pos.get_order()'>
                                 <div t-attf-class='button js_invoice #{ widget.pos.get_order().is_to_invoice() ? "highlight" : ""} '>
-                                    <i class='fa fa-file-text-o' /> Invoice
+                                    <i class='fa fa-file-text-o'/>
+                                    Invoice
                                 </div>
                             </t>
                         </t>
                         <div class='button js_email'>
-                            <i class='fa fa-inbox' /> Email
+                            <i class='fa fa-inbox'/>
+                            Email
                         </div>
                         <t t-if='widget.pos.config.tip_product_id'>
                             <div class='button js_tip'>
-                                <i class='fa fa-heart' /> Tip
+                                <i class='fa fa-heart'/>
+                                Tip
                             </div>
                         </t>
                         <t t-if='widget.pos.config.iface_cashdrawer'>
                             <div class='button js_cashdrawer'>
-                                <i class='fa fa-archive' /> Open Cashbox
+                                <i class='fa fa-archive'/>
+                                Open Cashbox
                             </div>
                         </t>
                      </div>
@@ -811,10 +843,12 @@
                 </div>
                 <div class="centered-content touch-scrollable">
                     <div class="button print_invoice">
-                        <i class='fa fa-print'></i> Print Invoice
+                        <i class='fa fa-print'></i>
+                        Print Invoice
                     </div>
                     <div class="button print">
-                        <i class='fa fa-print'></i> Print Receipt
+                        <i class='fa fa-print'></i>
+                        Print Receipt
                     </div>
                     <div class="pos-receipt-container">
                     </div>
@@ -825,13 +859,17 @@
     <t t-name="OrderReceiptWrappedProductNameLines"><t t-foreach="line.product_name_wrapped.slice(1)" t-as="wrapped_line"><t t-esc="wrapped_line"/></t></t>
     <t t-name="OrderReceipt">
         <div class="pos-receipt">
-            <t t-if='receipt.company.logo'>
-                <img class="pos-receipt-logo" t-att-src='receipt.company.logo' alt="Logo"/>
+            <center>
+                <t t-if='receipt.company.logo'>
+
+<!--                class="pos-receipt-logo" -->
+                <img t-att-src='receipt.company.logo' alt="Logo"/>
                 <br/>
             </t>
+            </center>
             <t t-if='!receipt.company.logo'>
                 <h2 class="pos-receipt-center-align">
-                    <t t-esc='receipt.company.name' />
+                    <t t-esc='receipt.company.name'/>
                 </h2>
                 <br/>
             </t>
@@ -840,10 +878,10 @@
                     <div><t t-esc='receipt.company.contact_address' /></div>
                 </t>
                 <t t-if='receipt.company.phone'>
-                    <div>Tel:<t t-esc='receipt.company.phone' /></div>
+                    <div>Tel:<t t-esc='receipt.company.phone'/></div>
                 </t>
                 <t t-if='receipt.company.vat'>
-                    <div>VAT:<t t-esc='receipt.company.vat' /></div>
+                    <div>VAT:<t t-esc='receipt.company.vat'/></div>
                 </t>
                 <t t-if='receipt.company.email'>
                     <div><t t-esc='receipt.company.email' /></div>
@@ -852,7 +890,7 @@
                     <div><t t-esc='receipt.company.website' /></div>
                 </t>
                 <t t-if='receipt.header_html'>
-                    <t t-raw='receipt.header_html' />
+                    <t t-raw='receipt.header_html'/>
                 </t>
                 <t t-if='!receipt.header_html and receipt.header'>
                     <div><t t-esc='receipt.header' /></div>
@@ -860,29 +898,31 @@
                 <t t-if='receipt.cashier'>
                     <div class='cashier'>
                         <div>--------------------------------</div>
-                        <div>Served by <t t-esc='receipt.cashier' /></div>
+                        <div>Served by <t t-esc='receipt.cashier'/></div>
                     </div>
                 </t>
             </div>
-            <br /><br />
+            <br/>
+            <br/>
             <!-- Orderlines -->
             <div class='orderlines'>
                 <table class='receipt-orderlines' style="display:inline;">
                     <tr>
                         <th style="border:1px solid #000000; width:50%; text-align: center; padding: 2px;">Item Name</th>
-                        <th style="border:1px solid #000000; width:20%; text-align: center; center; padding: 2px;">Price</th>
                         <th style="border:1px solid #000000; width:10%; text-align: center; center; padding: 2px;">Qty</th>
+                        <th style="border:1px solid #000000; width:20%; text-align: center; center; padding: 2px;">Price</th>
                         <th style="border:1px solid #000000; width:20%; text-align: center; center; padding: 2px;">Amount</th>
                     </tr>
                     <tr t-foreach="receipt.orderlines" t-as="line">
                         <td style="border:1px solid #000000; text-align: left; center; padding: 2px;">
-                            <t t-set='simple' t-value='(line.discount === 0 and line.unit_name === "Units" and line.quantity === 1 and !discount_to_show and !(line.display_discount_policy == "without_discount" &amp;&amp; line.price != line.price_lst))'/>
+                            <t t-set='simple'
+                               t-value='(line.discount === 0 and line.unit_name === "Units" and line.quantity === 1 and !discount_to_show and !(line.display_discount_policy == "without_discount" &amp;&amp; line.price != line.price_lst))'/>
                             <t t-if='simple'>
                                 <div>
                                     <t t-esc='line.product_name_wrapped[0]'/>
                                 </div>
                                 <t t-call="OrderReceiptWrappedProductNameLines"/>
-<!--                                added-->
+                                <!--                                added-->
                                 <div>
                                     <t t-esc='line.product_barcode'/>
                                 </div>
@@ -893,7 +933,8 @@
                                 <div t-esc='line.product_barcode'/>
                                 <t t-if="line.display_discount_policy == 'without_discount' &amp;&amp; line.price != line.price_lst">
                                     <div class="pos-receipt-left-padding">
-                                        <t t-esc="widget.format_currency_no_symbol(line.price_lst)" />-><t t-esc="widget.format_currency_no_symbol(line.price)"/>
+                                        <t t-esc="widget.format_currency_no_symbol(line.price_lst)"/>->
+                                        <t t-esc="widget.format_currency_no_symbol(line.price)"/>
                                     </div>
                                 </t>
                                 <t t-elif='line.discount !== 0'>
@@ -908,20 +949,25 @@
                                 </t>
                                 <t t-if='line.discount !== 0'>
                                     <div class="pos-receipt-left-padding">
-                                        With a <t t-esc='line.discount' />% discount
+                                        With a <t t-esc='line.discount'/>% discount
                                     </div>
                                 </t>
                             </t>
                         </td>
-                        <td class="pos-left-align" style="border:1px solid #000000; text-align: center; padding: 2px;">
-                            <t t-esc="widget.format_currency_no_symbol(line.price)" />
-                        </td>
-                        <td class="pos-center-align" style="border:1px solid #000000; text-align: center; padding: 2px;">
+                        <td class="pos-center-align"
+                            style="border:1px solid #000000; text-align: center; padding: 2px;">
 <!--                            <t t-esc="line.get_quantity_str_with_unit()" t-options="{'widget':'float', 'precision': 2}"/>-->
-                            <t t-esc="Math.round(line.quantity * Math.pow(10, pos.dp['Product Unit of Measure'])) / Math.pow(10, pos.dp['Product Unit of Measure'])"/>
+                            <div>
+                                <t t-esc='line.quantity'/>
+                            </div>
+<!--                            <t t-esc="Math.round(line.quantity * Math.pow(10, pos.dp['Product Unit of Measure'])) / Math.pow(10, pos.dp['Product Unit of Measure'])"/>-->
                             <t t-if='line.unit_name !== "Units"' t-esc='line.unit_name'/>
                         </td>
-                        <td class="pos-center-align" style="border:1px solid #000000; text-align: center; padding: 2px;">
+                        <td class="pos-left-align" style="border:1px solid #000000; text-align: center; padding: 2px;">
+                            <t t-esc="widget.format_currency_no_symbol(line.price)"/>
+                        </td>
+                        <td class="pos-center-align"
+                            style="border:1px solid #000000; text-align: center; padding: 2px;">
                             <t t-esc='widget.format_currency_no_symbol(line.price_display)'/>
                             <!--                        <t t-esc="line.get_display_price().price_display" t-options="{'widget': 'float', 'precision': '2'}"/>-->
                             <!--                            <div class="pos-receipt-left-padding">-->
@@ -938,13 +984,13 @@
                 </table>
             </div>
             <!-- Subtotal -->
-            <t t-set='taxincluded' t-value='Math.abs(receipt.subtotal - receipt.total_with_tax) &lt;= 0.000001' />
+            <t t-set='taxincluded' t-value='Math.abs(receipt.subtotal - receipt.total_with_tax) &lt;= 0.000001'/>
             <t t-if='!taxincluded'>
                 <br/>
                 <div>Subtotal<span t-esc='widget.format_currency(receipt.subtotal)' class="pos-receipt-right-align"/></div>
                 <t t-foreach='receipt.tax_details' t-as='tax'>
                     <div>
-                        <t t-esc='tax.name' />
+                        <t t-esc='tax.name'/>
                         <span t-esc='widget.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
                     </div>
                 </t>
@@ -956,11 +1002,12 @@
                 TOTAL
                 <span t-esc='widget.format_currency(receipt.total_with_tax)' class="pos-receipt-right-align"/>
             </div>
-            <br/><br/>
+            <br/>
+            <br/>
             <!-- Payment Lines -->
             <t t-foreach='paymentlines' t-as='line'>
                 <div>
-                    <t t-esc='line.name' />
+                    <t t-esc='line.name'/>
                     <span t-esc='widget.format_currency_no_symbol(line.get_amount())' class="pos-receipt-right-align"/>
                 </div>
             </t>
@@ -980,7 +1027,7 @@
             <t t-if='taxincluded'>
                 <t t-foreach='receipt.tax_details' t-as='tax'>
                     <div>
-                        <t t-esc='tax.name' />
+                        <t t-esc='tax.name'/>
                         <span t-esc='widget.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
                     </div>
                 </t>
@@ -989,12 +1036,12 @@
                     <span t-esc='widget.format_currency(receipt.total_tax)' class="pos-receipt-right-align"/>
                 </div>
             </t>
-            <div class='before-footer' />
+            <div class='before-footer'/>
             <!-- Footer -->
-            <div t-if='receipt.footer_html'  class="pos-receipt-center-align">
+            <div t-if='receipt.footer_html' class="pos-receipt-center-align">
                 <t t-raw='receipt.footer_html'/>
             </div>
-            <div t-if='!receipt.footer_html and receipt.footer'  class="pos-receipt-center-align">
+            <div t-if='!receipt.footer_html and receipt.footer' class="pos-receipt-center-align">
                 <br/>
                 <t t-esc='receipt.footer'/>
                 <br/>
@@ -1003,7 +1050,7 @@
             <div class='after-footer'>
                 <t t-foreach='paymentlines' t-as='line'>
                     <t t-if='line.ticket'>
-                        <br />
+                        <br/>
                         <div class="pos-payment-terminal-receipt">
                             <t t-raw='line.ticket'/>
                         </div>
@@ -1024,26 +1071,27 @@
                 <br/>
             </t>
             <t t-if='!pos.company_logo_base64' class="pos-receipt-center-align">
-                <h1 t-esc='company.name' />
+                <h1 t-esc='company.name'/>
                 <br/>
             </t>
-            <br /><br />
+            <br/>
+            <br/>
             <!-- Orderlines -->
             <div class='orderlines'>
                 <t t-foreach='products' t-as='line'>
                     <div>
-                        <t t-esc='line.product_name.substr(0,20)' />
+                        <t t-esc='line.product_name.substr(0,20)'/>
                         <span class="pos-receipt-right-align">
-                            <t t-esc='Math.round(line.quantity * Math.pow(10, pos.dp["Product Unit of Measure"])) / Math.pow(10, pos.dp["Product Unit of Measure"])' />
+                            <t t-esc='Math.round(line.quantity * Math.pow(10, pos.dp["Product Unit of Measure"])) / Math.pow(10, pos.dp["Product Unit of Measure"])'/>
                             <t t-if='line.uom !== "Units"'>
-                                <t t-esc='line.uom' />
+                                <t t-esc='line.uom'/>
                             </t>
                             x
-                            <t t-esc='widget.format_currency_no_symbol(line.price_unit)' />
+                            <t t-esc='widget.format_currency_no_symbol(line.price_unit)'/>
                         </span>
                     </div>
                     <t t-if='line.discount !== 0'>
-                        <div class="pos-receipt-left-padding">Discount: <t t-esc='line.discount' />%</div>
+                        <div class="pos-receipt-left-padding">Discount: <t t-esc='line.discount'/>%</div>
                     </t>
                 </t>
             </div>
@@ -1148,7 +1196,7 @@
         <div role="dialog" class="modal-dialog">
             <div class="popup popup-barcode">
                 <header class="title">Unknown Barcode
-                    <br />
+                    <br/>
                     <span class='barcode'><t t-esc="widget.options.barcode" /></span>
                 </header>
                 <main class="body">
@@ -1201,14 +1249,16 @@
                 <header class="title"><t t-esc=" widget.options.title || '' " /></header>
                 <main class='packlot-lines'>
                     <t t-if="widget.options.pack_lot_lines">
-                        <t t-set="focus_lot_line" t-value="widget.focus_model || widget.options.pack_lot_lines.get_empty_model()"/>
+                        <t t-set="focus_lot_line"
+                           t-value="widget.focus_model || widget.options.pack_lot_lines.get_empty_model()"/>
                         <t t-foreach='widget.options.pack_lot_lines.models' t-as='lot_line'>
                             <input type="text" t-att-cid="lot_line.cid"
                                    t-att-value="lot_line.get('lot_name')"
                                    t-att-autofocus="lot_line === focus_lot_line ? 'autofocus': undefined"
                                    class="popup-input packlot-line-input"
                                    placeholder="Serial/Lot Number"/>
-                            <i class="oe_link_icon remove-lot fa fa-trash-o" role="img" aria-label="Remove" title="Remove"></i>
+                            <i class="oe_link_icon remove-lot fa fa-trash-o" role="img" aria-label="Remove"
+                               title="Remove"></i>
                         </t>
                     </t>
                 </main>
@@ -1245,7 +1295,8 @@
                 <header class="title"><t t-esc=" widget.options.title || 'Select' " /></header>
                 <div class='selection scrollable-y touch-scrollable'>
                     <t t-foreach="widget.list || []" t-as="item">
-                        <div t-attf-class="selection-item {{ widget.is_selected.call(widget, item.item) ? 'selected' : '' }}" t-att-data-item-index='item_index'>
+                        <div t-attf-class="selection-item {{ widget.is_selected.call(widget, item.item) ? 'selected' : '' }}"
+                             t-att-data-item-index='item_index'>
                             <t t-esc='item.label'/>
                         </div>
                     </t>
@@ -1263,7 +1314,7 @@
             <div class="popup popup-number">
                 <header class="title"><t t-esc=" widget.options.title || '' " /></header>
                 <div class='popup-input value active'>
-                    <t t-esc='widget.inputbuffer' />
+                    <t t-esc='widget.inputbuffer'/>
                 </div>
                 <div class='popup-numpad'>
                     <button class="input-button number-char" data-action='1'>1</button>
@@ -1271,35 +1322,39 @@
                     <button class="input-button number-char" data-action='3'>3</button>
                     <t t-if="widget.options.cheap">
                         <button class="mode-button add" data-action='+1'>+1</button>
-                    </t><t t-if="!widget.options.cheap">
+                    </t>
+                    <t t-if="!widget.options.cheap">
                         <button class="mode-button add" data-action='+10'>+10</button>
                     </t>
-                    <br />
+                    <br/>
                     <button class="input-button number-char" data-action='4'>4</button>
                     <button class="input-button number-char" data-action='5'>5</button>
                     <button class="input-button number-char" data-action='6'>6</button>
                     <t t-if="widget.options.cheap">
                         <button class="mode-button add" data-action='+2'>+2</button>
-                    </t><t t-if="!widget.options.cheap">
+                    </t>
+                    <t t-if="!widget.options.cheap">
                         <button class="mode-button add" data-action='+20'>+20</button>
                     </t>
-                    <br />
+                    <br/>
                     <button class="input-button number-char" data-action='7'>7</button>
                     <button class="input-button number-char" data-action='8'>8</button>
                     <button class="input-button number-char" data-action='9'>9</button>
                     <t t-if="widget.options.cheap">
                         <button class="mode-button add" data-action='+5'>+5</button>
-                    </t><t t-if="!widget.options.cheap">
+                    </t>
+                    <t t-if="!widget.options.cheap">
                         <button class="mode-button add" data-action='+50'>+50</button>
                     </t>
-                    <br />
-                    <button class="input-button numpad-char" data-action='CLEAR' >C</button>
+                    <br/>
+                    <button class="input-button numpad-char" data-action='CLEAR'>C</button>
                     <button class="input-button number-char" data-action='0'>0</button>
                     <button class="input-button number-char dot" t-att-data-action='widget.decimal_separator'><t t-esc='widget.decimal_separator'/></button>
-                    <button class="input-button numpad-backspace" data-action='BACKSPACE' >
-                        <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24" height="21" alt="Backspace"/>
+                    <button class="input-button numpad-backspace" data-action='BACKSPACE'>
+                        <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24"
+                             height="21" alt="Backspace"/>
                     </button>
-                    <br />
+                    <br/>
                 </div>
                 <footer class="footer centered">
                     <div class="button cancel">
@@ -1317,16 +1372,22 @@
             <div class="popup popup-import">
                 <header class="title">Finished Importing Orders</header>
                 <t t-if="widget.options and widget.options.report">
-                    <t t-set="report" t-value="widget.options.report" />
-                    <t t-set="unpaid_skipped" t-value="(report.unpaid_skipped_existing || 0) + (report.unpaid_skipped_session || 0)" />
+                    <t t-set="report" t-value="widget.options.report"/>
+                    <t t-set="unpaid_skipped"
+                       t-value="(report.unpaid_skipped_existing || 0) + (report.unpaid_skipped_session || 0)"/>
                     <ul class='body'>
-                        <li>Successfully imported <b><t t-esc='report.paid || 0'/></b> paid orders</li>
-                        <li>Successfully  imported <b><t t-esc='report.unpaid || 0'/></b> unpaid orders</li>
+                        <li>Successfully imported <b><t t-esc='report.paid || 0'/></b>
+                            paid orders</li>
+                        <li>Successfully  imported <b><t t-esc='report.unpaid || 0'/></b>
+                            unpaid orders</li>
                         <t t-if="unpaid_skipped">
-                            <li><b><t t-esc="unpaid_skipped"/></b> unpaid orders could not be imported
+                            <li><b><t t-esc="unpaid_skipped"/></b>
+                                unpaid orders could not be imported
                                 <ul>
-                                    <li><b><t t-esc="report.unpaid_skipped_existing || 0" /></b> were duplicates of existing orders</li>
-                                    <li><b><t t-esc="report.unpaid_skipped_session || 0" /></b> belong to another session:
+                                    <li><b><t t-esc="report.unpaid_skipped_existing || 0" /></b>
+                                        were duplicates of existing orders</li>
+                                    <li><b><t t-esc="report.unpaid_skipped_session || 0" /></b>
+                                        belong to another session:
                                         <t t-if="report.unpaid_skipped_sessions">
                                             <ul>
                                                 <li>Session ids: <b><t t-esc="JSON.stringify(report.unpaid_skipped_sessions)" /></b></li>
@@ -1348,7 +1409,8 @@
         </div>
     </t>
     <t t-name="Product">
-        <article class='product' t-att-data-product-id="product.id" tabindex="0" t-attf-aria-labelledby="article_product_#{product.id}">
+        <article class='product' t-att-data-product-id="product.id" tabindex="0"
+                 t-attf-aria-labelledby="article_product_#{product.id}">
             <div class="product-img">
                 <img t-att-src='image_url' alt="Product image"/>
                 <t t-if="!product.to_weight">
@@ -1372,7 +1434,8 @@
             <span class="product-name">
                 <t t-esc="line.get_product().display_name"/>
                 <t t-if="line.get_product().tracking!=='none'">
-                    <i class="oe_link_icon fa fa-list oe_icon line-lot-icon oe_green" t-if="line.has_valid_product_lot()"
+                    <i class="oe_link_icon fa fa-list oe_icon line-lot-icon oe_green"
+                       t-if="line.has_valid_product_lot()"
                        aria-label="Valid product lot" role="img" title="Valid product lot"/>
                     <i class="oe_link_icon fa fa-list oe_icon line-lot-icon oe_red" t-if="!line.has_valid_product_lot()"
                        aria-label="Invalid product lot" role="img" title="Invalid product lot"/>
@@ -1385,29 +1448,29 @@
                 <t t-if="line.get_quantity_str() !== '1' || line.selected ">
                     <li class="info">
                         <em>
-                            <t t-esc="line.get_quantity_str()" />
+                            <t t-esc="line.get_quantity_str()"/>
                         </em>
-                        <t t-esc="line.get_unit().name" />
+                        <t t-esc="line.get_unit().name"/>
                         at
                         <t t-if="line.display_discount_policy() == 'without_discount' &amp;&amp;
                             line.get_unit_display_price() != line.get_lst_price()">
                             <s>
-                                <t t-esc="widget.format_currency(line.get_fixed_lst_price(),'Product Price')" />
+                                <t t-esc="widget.format_currency(line.get_fixed_lst_price(),'Product Price')"/>
                             </s>
-                            <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')" />
+                            <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')"/>
                         </t>
                         <t t-else="">
-                            <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')" />
+                            <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')"/>
                         </t>
                         /
-                        <t t-esc="line.get_unit().name" />
+                        <t t-esc="line.get_unit().name"/>
                     </li>
                 </t>
                 <t t-if="line.get_discount_str() !== '0'">
                     <li class="info">
                         With a
                         <em>
-                            <t t-esc="line.get_discount_str()" />%
+                            <t t-esc="line.get_discount_str()"/>%
                         </em>
                         discount
                     </li>
@@ -1419,7 +1482,7 @@
         <div class="order-container">
             <div class="order-scroller touch-scrollable">
                 <div class="order">
-                    <t t-if="orderlines.length === 0" >
+                    <t t-if="orderlines.length === 0">
                         <div class='order-empty'>
                             <i class='fa fa-shopping-cart' role="img" aria-label="Shopping cart" title="Shopping cart"/>
                             <h1>Your shopping cart is empty</h1>
@@ -1430,7 +1493,8 @@
                         <div class="summary clearfix">
                             <div class="line">
                                 <div class='entry total'>
-                                    <span class="badge">Total: </span> <span class="value">0.00 €</span>
+                                    <span class="badge">Total: </span>
+                                    <span class="value">0.00 €</span>
                                     <div class='subentry'>Taxes: <span class="value">0.00€</span></div>
                                 </div>
                             </div>
@@ -1467,7 +1531,8 @@
                     <a><li class="button download_unpaid_orders oe_hidden">Download Unpaid Orders</li></a>
                     <li class="button import_orders" style="position:relative">
                         Import Orders
-                        <input type="file" style="opacity:0;position:absolute;top:0;left:0;right:0;bottom:0;margin:0;cursor:pointer"/>
+                        <input type="file"
+                               style="opacity:0;position:absolute;top:0;left:0;right:0;bottom:0;margin:0;cursor:pointer"/>
                     </li>
                 </ul>
                 <p class="category">Hardware Status</p>
@@ -1492,8 +1557,8 @@
             <input class='paymentline-input'
                    t-att-type="widget.decimal_point === '.' ? 'number' : 'text'"
                    t-attf-pattern="[0-9]+([\\#{widget.decimal_point || '.' }][0-9]+)?"
-                   step="0.01" t-att-value="line.get_amount_str()" />
-            <span  class='paymentline-delete'>
+                   step="0.01" t-att-value="line.get_amount_str()"/>
+            <span class='paymentline-delete'>
                 <img src="/point_of_sale/static/src/img/search_reset.gif" alt="Delete"/>
             </span>
         </div>
@@ -1504,7 +1569,7 @@
                 <t t-esc="line.name"/>
             </td>
             <td class="paymentline-amount pos-right-align">
-                <input type="number" step="0.01" t-att-value="line.get_amount_str()" />
+                <input type="number" step="0.01" t-att-value="line.get_amount_str()"/>
                 <span class='delete-payment-line'><img src="/point_of_sale/static/src/img/search_reset.gif" alt="Delete"/></span>
             </td>
         </tr>
@@ -1517,7 +1582,7 @@
                     <t t-if="order === widget.pos.get_order()">
                         <span class="order-button select-order selected" t-att-data-uid="order.uid">
                             <span class="order-sequence">
-                                <t t-esc="order.sequence_number" />
+                                <t t-esc="order.sequence_number"/>
                             </span>
                             <t t-esc="moment(order.creation_date).format('hh:mm')"/>
                         </span>
@@ -1525,7 +1590,7 @@
                     <t t-if="order !== widget.pos.get_order()">
                         <span class="order-button select-order" t-att-data-uid="order.uid">
                             <span class="order-sequence">
-                                <t t-esc="order.sequence_number" />
+                                <t t-esc="order.sequence_number"/>
                             </span>
                         </span>
                     </t>
@@ -1541,7 +1606,7 @@
     </t>
     <t t-name="UsernameWidget">
         <span class="username">
-            <t t-esc="widget.get_name()" />
+            <t t-esc="widget.get_name()"/>
         </span>
     </t>
     <!-- Onscreen Keyboard :
@@ -1549,19 +1614,32 @@
     <t t-name="OnscreenKeyboardFull">
         <div class="keyboard_frame">
             <ul class="keyboard full_keyboard">
-                <li class="symbol"><span class="off">`</span><span class="on">~</span></li>
-                <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
-                <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
-                <li class="symbol"><span class="off">3</span><span class="on">#</span></li>
-                <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
-                <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
-                <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
-                <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
-                <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
-                <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
-                <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
-                <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
-                <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+                <li class="symbol"><span class="off">`</span>
+                    <span class="on">~</span></li>
+                <li class="symbol"><span class="off">1</span>
+                    <span class="on">!</span></li>
+                <li class="symbol"><span class="off">2</span>
+                    <span class="on">@</span></li>
+                <li class="symbol"><span class="off">3</span>
+                    <span class="on">#</span></li>
+                <li class="symbol"><span class="off">4</span>
+                    <span class="on">$</span></li>
+                <li class="symbol"><span class="off">5</span>
+                    <span class="on">%</span></li>
+                <li class="symbol"><span class="off">6</span>
+                    <span class="on">^</span></li>
+                <li class="symbol"><span class="off">7</span>
+                    <span class="on">&amp;</span></li>
+                <li class="symbol"><span class="off">8</span>
+                    <span class="on">*</span></li>
+                <li class="symbol"><span class="off">9</span>
+                    <span class="on">(</span></li>
+                <li class="symbol"><span class="off">0</span>
+                    <span class="on">)</span></li>
+                <li class="symbol"><span class="off">-</span>
+                    <span class="on">_</span></li>
+                <li class="symbol"><span class="off">=</span>
+                    <span class="on">+</span></li>
                 <li class="delete lastitem">delete</li>
                 <li class="tab firstitem">tab</li>
                 <li class="letter">q</li>
@@ -1574,9 +1652,12 @@
                 <li class="letter">i</li>
                 <li class="letter">o</li>
                 <li class="letter">p</li>
-                <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
-                <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
-                <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+                <li class="symbol"><span class="off">[</span>
+                    <span class="on">{</span></li>
+                <li class="symbol"><span class="off">]</span>
+                    <span class="on">}</span></li>
+                <li class="symbol lastitem"><span class="off">\</span>
+                    <span class="on">|</span></li>
                 <li class="capslock firstitem">caps lock</li>
                 <li class="letter">a</li>
                 <li class="letter">s</li>
@@ -1587,8 +1668,10 @@
                 <li class="letter">j</li>
                 <li class="letter">k</li>
                 <li class="letter">l</li>
-                <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
-                <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+                <li class="symbol"><span class="off">;</span>
+                    <span class="on">:</span></li>
+                <li class="symbol"><span class="off">'</span>
+                    <span class="on">&quot;</span></li>
                 <li class="return lastitem">return</li>
                 <li class="left-shift firstitem">shift</li>
                 <li class="letter">z</li>
@@ -1598,9 +1681,12 @@
                 <li class="letter">b</li>
                 <li class="letter">n</li>
                 <li class="letter">m</li>
-                <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
-                <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
-                <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+                <li class="symbol"><span class="off">,</span>
+                    <span class="on">&lt;</span></li>
+                <li class="symbol"><span class="off">.</span>
+                    <span class="on">&gt;</span></li>
+                <li class="symbol"><span class="off">/</span>
+                    <span class="on">?</span></li>
                 <li class="right-shift lastitem">shift</li>
                 <li class="space firstitem lastitem">&amp;nbsp;</li>
             </ul>
@@ -1610,36 +1696,64 @@
     <t t-name="OnscreenKeyboardSimple">
         <div class="keyboard_frame">
             <ul class="keyboard simple_keyboard">
-                <li class="symbol firstitem row_qwerty"><span class="off">q</span><span class="on">1</span></li>
-                <li class="symbol"><span class="off">w</span><span class="on">2</span></li>
-                <li class="symbol"><span class="off">e</span><span class="on">3</span></li>
-                <li class="symbol"><span class="off">r</span><span class="on">4</span></li>
-                <li class="symbol"><span class="off">t</span><span class="on">5</span></li>
-                <li class="symbol"><span class="off">y</span><span class="on">6</span></li>
-                <li class="symbol"><span class="off">u</span><span class="on">7</span></li>
-                <li class="symbol"><span class="off">i</span><span class="on">8</span></li>
-                <li class="symbol"><span class="off">o</span><span class="on">9</span></li>
-                <li class="symbol lastitem"><span class="off">p</span><span class="on">0</span></li>
-                <li class="symbol firstitem row_asdf"><span class="off">a</span><span class="on">@</span></li>
-                <li class="symbol"><span class="off">s</span><span class="on">#</span></li>
-                <li class="symbol"><span class="off">d</span><span class="on">%</span></li>
-                <li class="symbol"><span class="off">f</span><span class="on">*</span></li>
-                <li class="symbol"><span class="off">g</span><span class="on">/</span></li>
-                <li class="symbol"><span class="off">h</span><span class="on">-</span></li>
-                <li class="symbol"><span class="off">j</span><span class="on">+</span></li>
-                <li class="symbol"><span class="off">k</span><span class="on">(</span></li>
-                <li class="symbol lastitem"><span class="off">l</span><span class="on">)</span></li>
-                <li class="symbol firstitem row_zxcv"><span class="off">z</span><span class="on">?</span></li>
-                <li class="symbol"><span class="off">x</span><span class="on">!</span></li>
-                <li class="symbol"><span class="off">c</span><span class="on">"</span></li>
-                <li class="symbol"><span class="off">v</span><span class="on">'</span></li>
-                <li class="symbol"><span class="off">b</span><span class="on">:</span></li>
-                <li class="symbol"><span class="off">n</span><span class="on">;</span></li>
-                <li class="symbol"><span class="off">m</span><span class="on">,</span></li>
+                <li class="symbol firstitem row_qwerty"><span class="off">q</span>
+                    <span class="on">1</span></li>
+                <li class="symbol"><span class="off">w</span>
+                    <span class="on">2</span></li>
+                <li class="symbol"><span class="off">e</span>
+                    <span class="on">3</span></li>
+                <li class="symbol"><span class="off">r</span>
+                    <span class="on">4</span></li>
+                <li class="symbol"><span class="off">t</span>
+                    <span class="on">5</span></li>
+                <li class="symbol"><span class="off">y</span>
+                    <span class="on">6</span></li>
+                <li class="symbol"><span class="off">u</span>
+                    <span class="on">7</span></li>
+                <li class="symbol"><span class="off">i</span>
+                    <span class="on">8</span></li>
+                <li class="symbol"><span class="off">o</span>
+                    <span class="on">9</span></li>
+                <li class="symbol lastitem"><span class="off">p</span>
+                    <span class="on">0</span></li>
+                <li class="symbol firstitem row_asdf"><span class="off">a</span>
+                    <span class="on">@</span></li>
+                <li class="symbol"><span class="off">s</span>
+                    <span class="on">#</span></li>
+                <li class="symbol"><span class="off">d</span>
+                    <span class="on">%</span></li>
+                <li class="symbol"><span class="off">f</span>
+                    <span class="on">*</span></li>
+                <li class="symbol"><span class="off">g</span>
+                    <span class="on">/</span></li>
+                <li class="symbol"><span class="off">h</span>
+                    <span class="on">-</span></li>
+                <li class="symbol"><span class="off">j</span>
+                    <span class="on">+</span></li>
+                <li class="symbol"><span class="off">k</span>
+                    <span class="on">(</span></li>
+                <li class="symbol lastitem"><span class="off">l</span>
+                    <span class="on">)</span></li>
+                <li class="symbol firstitem row_zxcv"><span class="off">z</span>
+                    <span class="on">?</span></li>
+                <li class="symbol"><span class="off">x</span>
+                    <span class="on">!</span></li>
+                <li class="symbol"><span class="off">c</span>
+                    <span class="on">"</span></li>
+                <li class="symbol"><span class="off">v</span>
+                    <span class="on">'</span></li>
+                <li class="symbol"><span class="off">b</span>
+                    <span class="on">:</span></li>
+                <li class="symbol"><span class="off">n</span>
+                    <span class="on">;</span></li>
+                <li class="symbol"><span class="off">m</span>
+                    <span class="on">,</span></li>
                 <li class="delete lastitem">delete</li>
-                <li class="numlock firstitem row_space"><span class="off">123</span><span class="on">ABC</span></li>
+                <li class="numlock firstitem row_space"><span class="off">123</span>
+                    <span class="on">ABC</span></li>
                 <li class="space">&amp;nbsp;</li>
-                <li class="symbol"><span class="off">.</span><span class="on">.</span></li>
+                <li class="symbol"><span class="off">.</span>
+                    <span class="on">.</span></li>
                 <li class="return lastitem">return</li>
             </ul>
             <p class="close_button">close</p>
@@ -1686,7 +1800,7 @@
             <div>
                 <span class="pos-change_title">Change:</span>
             </div>
-            <div >
+            <div>
                 <span class="pos-change_amount"><t t-esc="widget.format_currency(order.get_change())"/></span>
             </div>
         </t>
