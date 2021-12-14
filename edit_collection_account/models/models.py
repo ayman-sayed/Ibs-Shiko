@@ -12,14 +12,14 @@ class EditAccountMove(models.Model):
 
     collection_ids = fields.One2many(comodel_name="collection", inverse_name="move_id", string="Collections", required=False, )
 
-
-class AccountJournal(models.Model):
-    _inherit = 'account.journal'
-
-    next_link_synchronization = fields.Float(string="", required=False, )
-    account_online_account_id = fields.Many2one(comodel_name="account.account", string="", required=False, )
-    account_online_link_state = fields.Float(string="", required=False, )
-    bank_statement_creation_groupby = fields.Float(string="", required=False, )
+#
+# class AccountJournal(models.Model):
+#     _inherit = 'account.journal'
+#
+#     next_link_synchronization = fields.Float(string="", required=False, )
+#     account_online_account_id = fields.Many2one(comodel_name="account.account", string="", required=False, )
+#     account_online_link_state = fields.Float(string="", required=False, )
+#     bank_statement_creation_groupby = fields.Float(string="", required=False, )
 
 
 class Collection(models.Model):
