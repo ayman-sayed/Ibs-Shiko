@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="NumpadWidget">
+        <t t-jquery=".mode-button:eq(2)" t-operation="replace">
+            <t t-if="widget.pos.user.price">
+                <button class="disabled-mode mode-button" data-mode='disabled'>Price</button>
+            </t>
+            <t t-else="">
+                <button class="mode-button" data-mode='price'>Price</button>
+            </t>
+        </t>
+    </t>
+</templates>
