@@ -39,9 +39,9 @@ class EditAccountMove(models.Model):
         self.mapped('line_ids').remove_move_reconcile()
         self.write({'state': 'draft'})
 
-    def server_button_draft(self):
-        for rec in self:
-            rec.write({'state': 'draft'})
+    # def server_button_draft(self):
+    #     for rec in self:
+    #         rec.write({'state': 'draft'})
 
 class Collection(models.Model):
     _name = 'collection'
