@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="view_pos_order_form_inherit_return_reason" model="ir.ui.view">
+        <field name="name">pos.order.form.return.reason</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header//button[@name='refund']" position="replace">
+                <button name="%(action_pos_return_reason_wizard)d" string="Return Products" type="action"
+                        class="btn-secondary" context="{'active_id': active_id}" attrs="{'invisible':[('state','=','draft')]}"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_pos_order_tree_inherit" model="ir.ui.view">
+        <field name="name">pos.order.tree.inherit.return.reason</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <!-- Add the return_reason field to the tree view -->
+            <xpath expr="//tree" position="inside">
+                <field name="return_reason"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
