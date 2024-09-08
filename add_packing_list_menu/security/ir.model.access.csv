@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_add_packing_list_menu_add_packing_list_menu,add_packing_list_menu_add_packing_list_menu,model_add_packing_list_menu_add_packing_list_menu,base.group_user,1,1,1,1
-access_add_packing_list_menu_aline_line,line_line,model_line_line,base.group_user,1,1,1,1

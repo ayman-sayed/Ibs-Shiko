@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data >
-        <record id="create_group_field_cost" model="res.groups">
-            <field name="name">Group Cost</field>
-        </record>
-    </data>
-</odoo>
