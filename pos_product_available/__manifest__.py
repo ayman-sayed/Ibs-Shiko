@@ -14,7 +14,7 @@
     # "currency": "EUR",
     "depends": ["point_of_sale", "stock"],
     "external_dependencies": {"python": [], "bin": []},
-    "data": ["views/views.xml"],
+    "data": ["data.xml", "views/views.xml"],
     "qweb": ["static/src/xml/pos.xml"],
     "post_load": None,
     "pre_init_hook": None,
