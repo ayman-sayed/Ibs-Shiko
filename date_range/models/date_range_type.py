@@ -12,7 +12,6 @@ from odoo.exceptions import ValidationError
 class DateRangeType(models.Model):
     _name = "date.range.type"
     _description = "Date Range Type"
-    _order = "name,id"
 
     @api.model
     def _default_company(self):
@@ -84,8 +83,7 @@ class DateRangeType(models.Model):
                     continue
                 if bool(
                     rec.date_range_ids.filtered(
-                        lambda r, drt=rec: r.company_id
-                        and r.company_id != drt.company_id
+                        lambda r: r.company_id and r.company_id != rec.company_id
                     )
                 ):
                     raise ValidationError(
@@ -146,5 +144,5 @@ class DateRangeType(models.Model):
             except Exception as e:
                 logger.warning(
                     "Error autogenerating ranges for date range type "
-                    f"{dr_type.name}: {e}"
+                    "%s: %s" % (dr_type.name, e)
                 )

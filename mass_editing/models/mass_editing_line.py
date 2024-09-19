@@ -6,7 +6,7 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
-# MAGIC_FIELDS = models.MAGIC_COLUMNS + [models.BaseModel.CONCURRENCY_CHECK_FIELD]
+MAGIC_FIELDS = models.MAGIC_COLUMNS + [models.BaseModel.CONCURRENCY_CHECK_FIELD]
 
 
 class MassEditingLine(models.Model):
@@ -14,12 +14,6 @@ class MassEditingLine(models.Model):
     _description = "Mass Editing Line"
     _order = "sequence, field_id"
 
-    name = fields.Char(string='Name')
-    value = fields.Float(string='Value')
-    write_date = fields.Datetime(string='Last Modified', readonly=True)
-    MAGIC_COLUMNS = ['name', 'value']
-    CONCURRENCY_CHECK_FIELD = 'write_date'
-    MAGIC_FIELDS = MAGIC_COLUMNS + [CONCURRENCY_CHECK_FIELD]
     sequence = fields.Integer()
     server_action_id = fields.Many2one(
         "ir.actions.server",

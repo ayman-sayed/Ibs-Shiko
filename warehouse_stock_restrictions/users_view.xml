@@ -8,8 +8,8 @@
             <field name="arch" type="xml">
                 <group name="messaging" position="before">
                     <group string="Warehouse Restrictions"
-                           invisible="login == 'admin'">
-                        <field name="default_picking_type_ids" widget="many2many_tags" invisible="login == 'admin'"/>
+                           attrs="{'invisible': [('login','=', 'admin')]}">
+                        <field name="default_picking_type_ids" widget="many2many_tags" attrs="{'invisible': [('login','=', 'admin')]}"/>
                     </group>
                 </group>
             </field>
@@ -22,8 +22,8 @@
             <field name="arch" type="xml">
                 <group name="messaging" position="before">
                     <group string="Locations"
-                           invisible="login == 'admin'">
-                        <field name="restrict_locations" invisible="login == 'admin'"/>
+                          attrs="{'invisible': [('login','=', 'admin')]}">
+                        <field name="restrict_locations" attrs="{'invisible': [('login','=', 'admin')]}"/>
                     </group>
                 </group>
                 <notebook>

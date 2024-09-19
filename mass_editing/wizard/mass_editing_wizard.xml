@@ -13,29 +13,31 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <header />
                 <p
                     class="oe_grey"
-                    invisible="message == False"
+                    attrs="{'invisible':
+                    [('message', '=', False)]}"
                 >
                     <field name="message" />
                 </p>
                 <p
                     class="alert alert-info"
                     role="alert"
-                    invisible="operation_description_info == False "
+                    attrs="{'invisible':
+                    [('operation_description_info', '=', False)]}"
                 >
                     <field name="operation_description_info" />
                 </p>
                 <p
                     class="alert alert-warning"
                     role="alert"
-                    invisible="operation_description_warning == False "
+                    attrs="{'invisible':
+                    [('operation_description_warning', '=', False)]}"
                 >
                     <field name="operation_description_warning" />
                 </p>
                 <p
                     class="alert alert-danger"
                     role="alert"
-                    invisible="operation_description_danger == False "
-
+                    attrs="{'invisible': [('operation_description_danger', '=', False)]}"
                 >
                     <field name="operation_description_danger" />
                 </p>
