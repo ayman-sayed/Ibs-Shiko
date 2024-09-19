@@ -21,7 +21,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/mass_editing_view.xml',
-        'views/basic_js.xml',# boris.gra
+        # 'views/basic_js.xml',# boris.gra
     ],
     'installable': True,
     'application': False,
