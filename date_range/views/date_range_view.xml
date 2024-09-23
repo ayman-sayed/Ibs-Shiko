@@ -29,8 +29,8 @@
                     name="web_ribbon"
                     title="Archived"
                     bg_color="bg-danger"
-                    attrs="{'invisible': [('active', '=', True)]}"
                 />
+<!--                attrs="{'invisible': [('active', '=', True)]}"-->
                 <group col="4">
                     <field name="name" />
                     <field name="type_id" />
