@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
-
-    <record id="group_disappear_cost_product" model="res.groups">
-        <field name="name">Product Cost Visibility</field>
-    </record>
-
-</odoo>
