@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        <record id="add_button_acthjion_view" model="ir.actions.server">-->
+        <!--            <field name="name">Confirm Order</field>-->
+        <!--            <field name="model_id" ref="purchase.model_purchase_order"/>-->
+        <!--            <field name="binding_model_id" ref="purchase.model_purchase_order"/>-->
+        <!--            <field name="binding_view_types">list</field>-->
+        <!--            <field name="state">code</field>-->
+        <!--            <field name="code">-->
+        <!--                if records:-->
+        <!--                records.button_confirm()-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <!--        <record id="add_button_cancel_view" model="ir.actions.server">-->
+        <!--            <field name="name">Cancel Order</field>-->
+        <!--            <field name="model_id" ref="purchase.model_purchase_order"/>-->
+        <!--            <field name="binding_model_id" ref="purchase.model_purchase_order"/>-->
+        <!--            <field name="binding_view_types">list</field>-->
+        <!--            <field name="state">code</field>-->
+        <!--            <field name="code">-->
+        <!--                if records:-->
+        <!--                records.button_cancel()-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <!--        <record model="ir.actions.server" id="action_cancel_button_sale">-->
+        <!--            <field name="name">Cancel Order</field>-->
+        <!--            <field name="model_id" ref="sale.model_sale_order"/>-->
+        <!--            <field name="binding_model_id" ref="sale.model_sale_order"/>-->
+        <!--            <field name="binding_view_types">list</field>-->
+        <!--            <field name="state">code</field>-->
+        <!--            <field name="code">-->
+        <!--                if records:-->
+        <!--                records.action_cancel()-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <record id="id_view_sale_archive_order_line" model="ir.ui.view">
+            <field name="name">sale archive order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="active" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="id_view_purchase_order_form_inherit_archive" model="ir.ui.view">
+            <field name="name">purchase order form inherit archive</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="active" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="id_view_archive" model="ir.ui.view">
+            <field name="name">view archive</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="active" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="id_view_move_form_inherit_archive" model="ir.ui.view">
+            <field name="name">account move form inherit archive</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="active" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

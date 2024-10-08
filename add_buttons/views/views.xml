@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_purchase_order_form_inherit_l10n_in_purchase_id" model="ir.ui.view">
+            <field name="name">view_purchase_order_form_inherit_l10n_in_purchase_id</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='print_quotation']" position="after">
+                    <button name="validate_button" type="object" string="Validate"/>
+                </xpath>
+                <xpath expr="//button[@id='draft_confirm']" position="replace">
+                    <!-- Add your fields or attributes here -->
+                    <button name="button_confirm" type="object"  string="Confirm Order" id="draft_confirm"/>
+                </xpath>
+                <xpath expr="///button[@id='bid_confirm']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_picking_form_inherit_website_sale_stock_id" model="ir.ui.view">
+            <field name="name">view_picking_form_inherit_website_sale_stock_id</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_validate']" position="attributes">
+                    <attribute name="string">Confirm</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_validate'][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='button_validate']" position="after">
+                    <button name="button_validate_name" type="object" string="Validate" />
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
