@@ -6,7 +6,7 @@
     'website' : 'https://www.smartway.co',
     'license':  "Other proprietary",
     'summary': """Add a special sequence to your RFQs""",
-    'data': ['sequence.xml'],
+    'data': ['sequence.xml','view.xml'],
     'depends' : ['base', 'purchase','stock'],
     'images':  ["static/description/image.png"],
     'installable': True,
