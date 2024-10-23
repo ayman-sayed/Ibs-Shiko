@@ -30,7 +30,7 @@ class purchase_order(models.Model):
             self.picking_ids.write({'origin': order.interchanging_po_sequence})
             if self.picking_ids:
                 for pick in self.picking_ids:
-                    pick.move_lines.write({'origin': order.interchanging_po_sequence}) 
+                    pick.write({'origin': order.interchanging_po_sequence})
         return res
     
     def button_draft(self):

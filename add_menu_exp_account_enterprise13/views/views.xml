@@ -34,7 +34,7 @@
 
                         <notebook>
                             <page string="Expenses">
-                                <field name="expenses_ids" readonly="state == 'confirm'"/>
+                                <field name="expenses_ids" readonly="state == 'confirm'">
                                     <tree editable="1">
                                         <field name="product_ids" optional="show"/>
                                         <field name="name" optional="show"/>
