@@ -69,7 +69,6 @@ class Expense(models.Model):
                         taxx = tax.account_id.id
                 lines.append([0, 0, {
                     'account_id': line.account_id.id,
-                    'analytic_account_id': line.analytic_account_id.id,
                     'name': line.name,
                     'debit': line.price_subtotal,
                 }])
@@ -80,14 +79,15 @@ class Expense(models.Model):
                     'debit': rec.tax,
                 }])
             lines.append([0, 0, {
-                'account_id': rec.journal_id.default_debit_account_id.id,
+                'account_id': rec.journal_id.default_account_id.id,
                 'name': rec.name,
                 'credit': rec.total,
             }])
+
             if rec.journal_entry_id.is_created == False:
                 invoice = self.env['account.move'].sudo().create({
                     'is_created': True,
-                    'type': 'entry',
+                    'move_type': 'entry',
                     'ref': rec.name,
                     'date': rec.expense_date,
                     'journal_id': rec.journal_id.id,
@@ -95,6 +95,18 @@ class Expense(models.Model):
                 })
                 rec.journal_entry_id = invoice.id
                 invoice.action_post()
+
+                # 'line_ids': [(0, 0, {
+                #         'account_id': rec.account_id.id,
+                #         'name': rec.name,
+                #         'debit': rec.price_unit,
+                #     }), (0, 0, {
+                #         'account_id': rec.account_id.id,
+                #         'name': rec.name,
+                #         'credit': rec.price_unit,
+                #     })],
+                # })
+                # rec.journal_entry_id = invoice.id
             else:
                 rec.journal_entry_id.date = rec.expense_date
                 rec.journal_entry_id.journal_id = rec.journal_id
