@@ -92,7 +92,7 @@
                 </p>
             </field>
         </record>
-        <menuitem id="Expense_view_menu" name="Expensezzzs" parent="account.menu_finance_entries_accounting_miscellaneous"
+        <menuitem id="Expense_view_menu" name="Expenses" parent="account.menu_finance_entries_accounting_miscellaneous"
                   action="Expense_view_action" sequence="2"/>
 
     </data>
