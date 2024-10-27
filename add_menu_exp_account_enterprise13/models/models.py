@@ -40,8 +40,6 @@ class Expense(models.Model):
                 raise UserError(error_message % state_description_values.get(self[:1].state))
         return super(Expense, self).unlink()
 
-
-
     @api.model
     def create(self, vals):
         if vals.get('seq', _('New')) == _('New'):
@@ -151,3 +149,51 @@ class ExpenseLine(models.Model):
     price_subtotal = fields.Float(string="Subtotal", required=False, )
     # tax_value = fields.Float(string="Taxes Value", )
     # subtotal = fields.Float(string="Subtotal Go To Debit Or Credit", required=True, )
+
+
+class AccountJournalExpenses(models.Model):
+    _inherit = 'account.journal'
+
+    expenses_filtration = fields.Boolean(string="Expenses Filtration")
+    for_expenses = fields.Boolean(string="For Expenses")
+
+
+class AccountMoveExpenses(models.Model):
+    _inherit = 'account.move'
+
+    is_expenses = fields.Boolean()
+    is_receive = fields.Boolean()
+    is_created = fields.Boolean(string="", default=False)
+    journal_payment_id = fields.Many2one(comodel_name="account.journal")
+    expenses_filtration = fields.Boolean(string="Expenses Filtration", related='journal_payment_id.expenses_filtration')
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super(AccountMoveExpenses, self).create(vals_list)
+        for rec in res:
+            if rec.is_expenses:
+                partner = self.env['res.partner'].search([('is_expenses', '=', True)], limit=1)
+                if not partner:
+                    raise ValidationError('Please Add Expenses Partner First')
+                rec.partner_id = partner.id
+            elif rec.is_receive:
+                partner = self.env['res.partner'].search([('is_receive', '=', True)], limit=1)
+                if not partner:
+                    raise ValidationError('Please Add Receive Partner First')
+                rec.partner_id = partner.id
+        return res
+
+    def action_post(self):
+        res = super(AccountMoveExpenses, self).action_post()
+        for rec in self:
+            if rec.is_expenses or rec.is_receive:
+                if not rec.journal_payment_id:
+                    raise ValidationError('Please Select Journal Payment First')
+                for line in rec.line_ids:
+                    line.date = rec.date
+                for line in rec.invoice_line_ids:
+                    line.date = rec.date
+                self.env['account.payment.register'].with_context(active_model='account.move',
+                                                                  active_ids=rec.ids).create(
+                    {'journal_id': rec.journal_payment_id.id, 'payment_date': rec.date})._create_payments()
+        return res
