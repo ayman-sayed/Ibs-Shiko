@@ -9,6 +9,7 @@
                     <header>
                         <button name="get_confirm" string="Confirm" class="oe_highlight" type="object"
                         invisible="state == 'confirm'"/>
+
                         <button name="action_draft" string="Reset To Draft" type="object" class="btn btn-secondary"
                                 invisible="state != 'confirm'"/>
                         <field name="state" widget="statusbar"/>
