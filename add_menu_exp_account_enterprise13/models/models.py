@@ -70,6 +70,8 @@ class Expense(models.Model):
                     'analytic_account_id': line.analytic_account_id.id,
                     'name': line.name,
                     'debit': line.price_subtotal,
+                    'expense_line_id': line.id,  # Set the expense line ID here
+
                 }])
             if taxx:
                 lines.append([0, 0, {
@@ -143,7 +145,7 @@ class ExpenseLine(models.Model):
     name = fields.Char(string="Label", )
     account_id = fields.Many2one(comodel_name="account.account", string="Account", required=True, )
     analytic_account_id = fields.Many2one(comodel_name="account.analytic.account", string="Analytic Account ",
-                                          required=False, )
+                                          required=False,store=True )
     quantity = fields.Float(string="Quantity", required=False, default="1")
     price_unit = fields.Float(string="Price", required=True, )
     tax_ids = fields.Many2many(comodel_name="account.tax", string="Taxes", )
@@ -206,5 +208,7 @@ class AccountMoveLine(models.Model):
     expense_line_id = fields.Many2one('expense.line', string="Expense Line")
     analytic_account_id = fields.Many2one(
         comodel_name='account.analytic.account',
-        string='Analytic Account'
+        string='Analytic Account',
+        related='expense_line_id.analytic_account_id',
+        store=True
     )
