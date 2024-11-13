@@ -198,3 +198,13 @@ class AccountMoveExpenses(models.Model):
                                                                   active_ids=rec.ids).create(
                     {'journal_id': rec.journal_payment_id.id, 'payment_date': rec.date})._create_payments()
         return res
+
+
+class AccountMoveLine(models.Model):
+    _inherit = 'account.move.line'
+
+    expense_line_id = fields.Many2one('expense.line', string="Expense Line")
+    analytic_account_id = fields.Many2one(
+        comodel_name='account.analytic.account',
+        string='Analytic Account'
+    )
