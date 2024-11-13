@@ -208,7 +208,5 @@ class AccountMoveLine(models.Model):
     expense_line_id = fields.Many2one('expense.line', string="Expense Line")
     analytic_account_id = fields.Many2one(
         comodel_name='account.analytic.account',
-        string='Analytic Account',
-        related='expense_line_id.analytic_account_id',
-        store=True
+        string='Analytic Account'
     )
