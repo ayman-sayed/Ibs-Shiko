@@ -71,6 +71,7 @@ class Expense(models.Model):
                     'name': line.name,
                     'debit': line.price_subtotal,
                     'expense_line_id': line.id,  # Set the expense line ID here
+                    'analytic_distribution': line.analytic_distribution,  # Add this line
 
                 }])
             if taxx:
@@ -152,6 +153,25 @@ class ExpenseLine(models.Model):
     price_subtotal = fields.Float(string="Subtotal", required=False, )
     # tax_value = fields.Float(string="Taxes Value", )
     # subtotal = fields.Float(string="Subtotal Go To Debit Or Credit", required=True, )
+    analytic_precision = fields.Integer(
+        string="Analytic Precision", 
+        default=100
+    )
+    analytic_distribution = fields.Json(
+        string="Analytic Distribution", 
+        compute='_compute_analytic_distribution',
+        store=True
+    )
+    
+    @api.depends('analytic_account_id')
+    def _compute_analytic_distribution(self):
+        for record in self:
+            if record.analytic_account_id:
+                record.analytic_distribution = {
+                    str(record.analytic_account_id.id): record.analytic_precision
+                }
+            else:
+                record.analytic_distribution = False
 
 
 class AccountJournalExpenses(models.Model):
@@ -208,5 +228,15 @@ class AccountMoveLine(models.Model):
     expense_line_id = fields.Many2one('expense.line', string="Expense Line")
     analytic_account_id = fields.Many2one(
         comodel_name='account.analytic.account',
-        string='Analytic Account'
+        string='Analytic Account',
+        related='expense_line_id.analytic_account_id',
+        store=True
+    )
+    analytic_distribution = fields.Json(
+        string="Analytic Distribution",
+        readonly=True
+    )
+    analytic_precision = fields.Integer(
+        string="Analytic Precision",
+        default=100
     )

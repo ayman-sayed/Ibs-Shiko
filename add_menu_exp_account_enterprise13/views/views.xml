@@ -42,6 +42,8 @@
                                         <field name="name" optional="show"/>
                                         <field name="account_id" optional="show"/>
                                         <field name="analytic_account_id" optional="show"/>
+                                        <field name="analytic_distribution" widget="analytic_distribution" 
+                                               options="{'product_field': 'product_ids'}" optional="show" readonly="1"/>
                                         <field name="quantity" optional="show"/>
                                         <field name="price_unit" optional="show"/>
                                         <field name="tax_ids" widget="many2many_tags" optional="show"/>
@@ -101,6 +103,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='line_ids']/tree/field[@name='analytic_distribution']" position="before">
                     <field name="analytic_account_id" string="Analytic Account"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='analytic_distribution']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="optional">show</attribute>
                 </xpath>
             </field>
         </record>
