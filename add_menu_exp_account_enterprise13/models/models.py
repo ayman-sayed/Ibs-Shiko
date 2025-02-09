@@ -140,7 +140,7 @@ class Expense(models.Model):
 class ExpenseLine(models.Model):
     _name = 'expense.line'
     _description = 'expense_line'
-
+    #update
     invoice_id = fields.Many2one(comodel_name="expense.expense", )
     product_ids = fields.Many2one(comodel_name="product.product", string="Product", )
     name = fields.Char(string="Label", )
