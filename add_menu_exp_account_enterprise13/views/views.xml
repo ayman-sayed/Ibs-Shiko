@@ -106,7 +106,6 @@
                 </xpath>
                 <xpath expr="//field[@name='line_ids']/tree//field[@name='analytic_distribution']" position="attributes">
                     <attribute name="invisible">0</attribute>
-                    <attribute name="readonly">1</attribute>
                     <attribute name="optional">show</attribute>
                 </xpath>
             </field>
