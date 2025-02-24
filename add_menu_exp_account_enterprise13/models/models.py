@@ -158,7 +158,7 @@ class ExpenseLine(models.Model):
         default=100
     )
     analytic_distribution = fields.Json(
-        string="Analytic Distribution", 
+        string="Analytic Distribution",
         compute='_compute_analytic_distribution',
         store=True
     )
@@ -234,7 +234,6 @@ class AccountMoveLine(models.Model):
     )
     analytic_distribution = fields.Json(
         string="Analytic Distribution",
-        readonly=True
     )
     analytic_precision = fields.Integer(
         string="Analytic Precision",
