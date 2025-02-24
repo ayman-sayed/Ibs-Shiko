@@ -234,7 +234,6 @@ class AccountMoveLine(models.Model):
     )
     analytic_distribution = fields.Json(
         string="Analytic Distribution",
-        readonly=True
     )
     analytic_precision = fields.Integer(
         string="Analytic Precision",
