@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='journal_div']" position="after">
                         <field name="ibs_analytic_account" invisible="True"/>
+                        <field name="ibs_analytic_distribution" widget="analytic_distribution" invisible="True"/>
                 </xpath>
             </field>
        </record>
